@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{% static "currency_app/style.css" %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="{% static "currency_app/script.js" %}"></script>
+
+
+
+<body>
+<!--<div class="d-flex flex-column justify-content-center w-100 h-100"></div>-->
+
+        <h1 class="header">Currency calculator</h1>
+
+
+
+<div class="center" style="width: 900px; height: 60px; margin-left: calc(100% / 3.8); margin-bottom: 10px; margin-top: 0px; margin-right: 10px;">
+
+    <select class="form-select"  aria-label="Default select example", id="send" style="width:auto;margin-right: 10px; " oninput="preferedBrowser()">
+  <option selected>Currency to send</option>
+  <option value="1">One</option>
+  <option value="2">Two</option>
+  <option value="3">Three</option>
+</select>
+
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none"  width="30" height="30" viewBox="0 0 17 17" aria-hidden="true" class="miscellany___StyledIconSwap-sc-1r08bla-1 fZJuOo"><path fill="currentColor" fill-rule="evenodd" d="M11.726 1.273l2.387 2.394H.667V5h13.446l-2.386 2.393.94.94 4-4-4-4-.94.94zM.666 12.333l4 4 .94-.94L3.22 13h13.447v-1.333H3.22l2.386-2.394-.94-.94-4 4z" clip-rule="evenodd"></path></svg>
+
+    <p1 style="font-size: 25px; margin-left: 10px;">PLN</p1>
+
+
+
+    <p1 style="font-size: 25px; margin-left:calc(100% / 3.4); margin-right: 10px;">PLN</p1>
+
+   <svg xmlns="http://www.w3.org/2000/svg" fill="none"  width="30" height="30" viewBox="0 0 17 17" aria-hidden="true" class="miscellany___StyledIconSwap-sc-1r08bla-1 fZJuOo"><path fill="currentColor" fill-rule="evenodd" d="M11.726 1.273l2.387 2.394H.667V5h13.446l-2.386 2.393.94.94 4-4-4-4-.94.94zM.666 12.333l4 4 .94-.94L3.22 13h13.447v-1.333H3.22l2.386-2.394-.94-.94-4 4z" clip-rule="evenodd"></path></svg>
+
+ <select class="form-select"  aria-label="Default select example", id="send" style="width:auto;margin-left: 10px;  margin-right: 10px;" oninput="preferedBrowser()">
+  <option selected>Currency to send</option>
+  <option value="1">One</option>
+  <option value="2">Two</option>
+  <option value="3">Three</option>
+</select>
+
+</div>
+
+
+
+
+
+<div class="input_one_line">
+
+  <input type="number" placeholder="Dupa" class="form-control" style="width: auto" id="left_input", name="other_l" , oninput="other_pln_l()" min="0">
+
+
+  <input type="number"  class="form-control" class="left_input" style="width: auto" id="right_input", name="pln_r" oninput="pln_other_r()" >
+
+
+</div>
+
+
+
+<div class="input_one_line">
+
+  <input type="number"  class="form-control" style="width: auto" id="left_input", name="pln_l" min="0" oninput="pln_other_l()">
+
+
+  <input type="number"  class="form-control" class="left_input" style="width: auto" id="right_input" name="other_r" oninput="other_pln_r()" >
+
+
+</div>
+
+
+
+
+</body>
+</html>
