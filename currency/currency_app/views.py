@@ -1,20 +1,20 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 from requests.exceptions import ConnectionError
 import requests
 
-sell_list = [1, 23, 3]
-buy_list = [1, 2, 3]
-currency_list = [
-    'USD', 'AUD', 'CAD', 'EUR', 'HUF', 'CHF', 'GBP', 'JPY', 'CZK', 'DKK', 'NOK', 'SEK'
-]
-# requests.get('dasadassdas')
-def update_price(sell_lst, buy_lst, currency_lst):
+
+
+def update_price():
+
     try:
         x = requests.get("""http://api.nbp.pl/api/exchangerates/tables/c""")
     except ConnectionError:
-        return sell_lst, buy_lst,currency_lst
+        # Initialize data
+        return [4.4249, 3.0386, 3.2937, 4.7209, 0.012424, 4.7824, 5.3062, 0.032986, 0.1997, 0.6335, 0.4318, 0.4231], [
+            4.5143, 3.1, 3.3603, 4.8163, 0.012674, 4.879, 5.4134, 0.033652, 0.2037, 0.6463, 0.4406, 0.4317], [
+            'USD', 'AUD', 'CAD', 'EUR', 'HUF', 'CHF', 'GBP', 'JPY', 'CZK', 'DKK', 'NOK', 'SEK'], "2023-02-16"
     if x.status_code == 200:
+        print(x.json()[0]['effectiveDate'])
 
         lst_1 = []
         lst_2 = []
@@ -25,29 +25,34 @@ def update_price(sell_lst, buy_lst, currency_lst):
                 lst_2.append(elem['ask'])
                 lst_3.append(elem['code'])
 
-        return lst_1, lst_2,lst_3
+        return lst_1, lst_2, lst_3, x.json()[0]['effectiveDate']
 
     else:
-        return sell_lst, buy_lst,currency_lst
+        return [4.4249, 3.0386, 3.2937, 4.7209, 0.012424, 4.7824, 5.3062, 0.032986, 0.1997, 0.6335, 0.4318, 0.4231], [4.5143, 3.1, 3.3603, 4.8163, 0.012674, 4.879, 5.4134, 0.033652, 0.2037, 0.6463, 0.4406, 0.4317],[
+    'USD', 'AUD', 'CAD', 'EUR', 'HUF', 'CHF', 'GBP', 'JPY', 'CZK', 'DKK', 'NOK', 'SEK'], "2023-02-16"
 
-
-
-sell_list, buy_list, currency_list = update_price(sell_list, buy_list, currency_list)
 
 
 
 
 def base(request):
+    #Better choice would be asyncio and make schedule for execute this function and for example
+    #save json data local and then read it.
+    sell_list, buy_list, currency_list, effective_date = update_price()
+
+    # Object needed to initialize select in html
     currency_lst_size = [elem for elem in range(len(currency_list))]
     zip_object = zip(currency_list, currency_lst_size)
     zip_object2 = zip(currency_list, currency_lst_size)
-    test = currency_list
+
+    pln_to_usd = round(1/buy_list[0],4)
     return render(request, 'base.html', {
         'zip_object': zip_object,
         'zip_object2': zip_object2,
-        'test': test,
         'sell_list': sell_list,
-        'buy_list': buy_list
+        'buy_list': buy_list,
+        'pln_to_usd': pln_to_usd,
+        'effective_date': effective_date
     })
 
 

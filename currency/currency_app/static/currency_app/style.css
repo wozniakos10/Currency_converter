@@ -1,7 +1,7 @@
 body {
 background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
 background-size: 400% 400%;
-animation: gradient 60s ease infinite;
+animation: gradient  40s ease infinite;
 height: 100vh;
 }
 
@@ -36,31 +36,16 @@ h1
 
 }
 
-#left_input {
-    margin-left: calc(100% / 3.8);
-
-
-    margin-right: 0px;
-}
-
-#right_input {
-    margin-left: calc(100% / 7);
-
-
-}
 
 
 
-.input_one_line {
 
-    display: flex;
-    margin-bottom: 50px;
-    margin-top:0px;
-
-}
 .center {
 
   display: flex;
   height: 150px;
   align-items: center;
 }
+
+
+
