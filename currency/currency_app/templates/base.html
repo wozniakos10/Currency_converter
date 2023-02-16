@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -9,13 +9,13 @@
     <script src="{% static "currency_app/script.js" %}"></script>
 
 
+</head>
 
 <body>
-<!--<div class="d-flex flex-column justify-content-center w-100 h-100"></div>-->
 
         <h1 class="header">Currency calculator</h1>
 
-
+<div style="margin-bottom: 130px;"></div>
 <div class="center" style="width: 900px; height: 60px; margin-left: calc(100% / 3.5); margin-bottom: 10px; margin-top: 0px; margin-right: 10px;">
 
     <select class="form-select" id="first_select" aria-label="Default select example",  style="width:auto;margin-right: 10px; " oninput="update_sell({{sell_list}})">
@@ -30,13 +30,13 @@
 
 
 
-    <p1 style="font-size: 25px; margin-left:calc(100% / 2.2); margin-right: 10px;">PLN</p1>
+    <p1 style="font-size: 25px; margin-left:calc(100% / 2.5); margin-right: 10px;">PLN</p1>
 
-   <svg xmlns="http://www.w3.org/2000/svg" fill="none"  width="30" height="30" viewBox="0 0 17 17" aria-hidden="true" class="miscellany___StyledIconSwap-sc-1r08bla-1 fZJuOo"><path fill="currentColor" fill-rule="evenodd" d="M11.726 1.273l2.387 2.394H.667V5h13.446l-2.386 2.393.94.94 4-4-4-4-.94.94zM.666 12.333l4 4 .94-.94L3.22 13h13.447v-1.333H3.22l2.386-2.394-.94-.94-4 4z" clip-rule="evenodd"></path></svg>
+   <svg xmlns="http://www.w3.org/2000/svg" style="margin-right: 10px;" fill="none"  width="30" height="30" viewBox="0 0 17 17" aria-hidden="true" class="miscellany___StyledIconSwap-sc-1r08bla-1 fZJuOo"><path fill="currentColor" fill-rule="evenodd" d="M11.726 1.273l2.387 2.394H.667V5h13.446l-2.386 2.393.94.94 4-4-4-4-.94.94zM.666 12.333l4 4 .94-.94L3.22 13h13.447v-1.333H3.22l2.386-2.394-.94-.94-4 4z" clip-rule="evenodd"></path></svg>
 
     <select class="form-select" id="second_select" aria-label="Default select example", id="send" style="width:auto;margin-right: 10px; " oninput="update_buy({{buy_list}})">
    {% for code,number in zip_object2 %}
-            <option value="{{ number }}">{{ code }}</option>
+            <option  value="{{ number }}">{{ code }} <img src="https://cdn-icons-png.flaticon.com/512/197/197571.png" height="20px" width="20px"></option>
         {% endfor %}
 </select>
 
@@ -45,19 +45,14 @@
 
 
 
-
-
 <div class="input_one_line">
-
-  <input type="number" value="0" placeholder="Enter value" class="form-control" style="width: auto" id="left_input", name="other_l" , oninput="other_pln_l({{sell_list}}, value)" min="0">
+  <input type="number" value="0" placeholder="Enter value" class="form-control" style="width: auto" id="left_input", name="other_l" , oninput="other_pln_l({{sell_list}}, value)" min="0" >
 
 
   <input type="number"  class="form-control" value="0" placeholder="Enter value" class="left_input" style="width: auto" id="right_input", name="pln_r" oninput="pln_other_r({{buy_list}}, value)" >
 
 
 </div>
-
-
 
 <div class="input_one_line">
 
@@ -67,6 +62,14 @@
   <input type="number"  class="form-control" value="0" placeholder="Enter value" class="left_input" style="width: auto" id="right_input" name="other_r" oninput="other_pln_r({{buy_list}}, value)" >
 
 
+</div>
+
+<div class="center"  style="width: 180px; height: 50px; margin-left: calc(100% / 3.43); margin-bottom: 10px; margin-top: -40px; margin-right: 10px; ">
+    <span id ='first_label' style="font-size: 18px;" > 1 USD = <b>{{sell_list.0}} PLN</b>  </span><br>
+</div>
+
+<div class="center"  style="width: 180px; height: 50px; margin-left: calc(100% / 1.703); margin-bottom: 10px; margin-top: -58px; margin-right: 10px;">
+    <span id="second_label" style="font-size: 18px;" >1 PLN = <b> {{pln_to_usd}} USD </b></span>
 </div>
 
 
