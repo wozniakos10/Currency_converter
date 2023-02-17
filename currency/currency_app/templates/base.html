@@ -18,6 +18,7 @@
 
         </div>
 <div style="margin-bottom: 130px;"></div>
+
 <div class="input-container" style="float:left; margin-left: calc(100%/4.1); width: 400px; height: 300px; ">
              <div class="center" style="width: 200px; height: 60px; margin-left: 50px;margin-bottom: 10px; margin-top: 0px; margin-right: 10px;">
 
@@ -33,7 +34,9 @@
              </div>
 
 
-           <span id="label_one" style="margin-left: calc(100%/3.13);">USD</span>
+           <span id="label_one" style="margin-left: calc(100%/4.3); margin-right: 5px">USD</span>
+            <img  id = "left_other_flag" height="40px" width="60px" data-original="{% static "currency_app/flags/" %}" src="{%static  "currency_app/flags/USD.svg"%}">
+
 
 
 
@@ -42,7 +45,9 @@
   <input type="number" value="0" placeholder="Enter value" class="form-control" style="width: auto; margin-top: 10px; margin-bottom: 20px;" id="other_l" oninput="other_pln_l({{sell_list}}, value)" min="0" >
   </label></div>
 
-                   <span style="margin-left: calc(100%/3.13);">PLN</span>
+                   <span style="margin-left: calc(100%/4.3); margin-right: 5px">PLN</span>
+                    <img alt=""  height="40px" width="60px"  src="{%static  "currency_app/flags/PLN.svg"%}">
+
 
 
   <div class="input-group">
@@ -73,7 +78,9 @@
 </select>
              </div>
 
-                   <span style="margin-left: calc(100%/3.13);">PLN</span>
+                   <span style="margin-left: calc(100%/4.5); margin-right: 5px">PLN</span>
+                <img alt="" height="40px" width="60px"  src="{%static  "currency_app/flags/PLN.svg"%}">
+
 
 
   <div class="input-group">
@@ -81,7 +88,8 @@
   <input type="number" value="0" placeholder="Enter value" class="form-control" style="width: auto; margin-top: 10px; margin-bottom: 20px;" id="pln_r", oninput="pln_other_r({{buy_list}}, value)" min="0" >
   </label></div>
 
-           <span id="label_two" style="margin-left: calc(100%/3.13);">USD</span>
+           <span id="label_two" style="margin-left: calc(100%/4.5); margin-right: 5px">USD</span>
+            <img alt="" id = "right_other_flag" height="40px" width="60px" data-original="{% static "currency_app/flags/" %}" src="{%static  "currency_app/flags/USD.svg"%}">
 
 
   <div class="input-group">
@@ -91,8 +99,6 @@
     <span id="second_label" style="font-size: 18px; margin-left: 60px;" >1 PLN = <b> {{pln_to_usd}} USD </b></span>
 
 </div>
-
-
 </body>
 </html>
 
