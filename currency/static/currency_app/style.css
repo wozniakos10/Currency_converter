@@ -1,0 +1,51 @@
+body {
+background: linear-gradient(-45deg, #ee7752, #c76383, #23a6d5, #23d5ab);
+background-size: 400% 400%;
+animation: gradient  40s ease infinite;
+height: 100vh;
+}
+
+@keyframes gradient {
+0% {  background-position: 0% 50%;
+}
+
+50% {
+background-position: 100% 50%;
+}
+
+100% {
+background-position: 0% 50%;
+}
+}
+
+h1
+{
+    margin-top: 200px;
+}
+.header {
+
+    color: #fff;
+  font-family: Minion Pro, Tahoma, serif;
+  font-size: 60px;
+  font-weight: bold;
+  font-style: italic;
+  text-align: center;
+  padding-top: 25px;
+  margin-bottom: 15px;
+  margin-top: 0;   /* This one */
+
+}
+
+
+
+
+
+.center {
+
+  display: flex;
+  height: 150px;
+  align-items: center;
+}
+
+
+
