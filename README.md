@@ -1,6 +1,6 @@
 # Currency_converter 
-Simple app to calculate currency exchange based on [NPB API](http://api.nbp.pl/). App enables calculate value of exchanging PLN to 12 other currencies 
-including diferences at buy and sell prices. App is already hosted on google cloud service. You can check it out [here](https://django-currency-n2pv2pkrwq-lm.a.run.app/).
+Simple app to calculate currency exchange based on [NBP API](http://api.nbp.pl/). App enables calculate value of exchanging PLN to 12 other currencies 
+including diferences at buy and sell prices. App is already hosted on google cloud service. You can check it out at [dwtask.com](https://dwtask.com/).
 
 <br>
 
